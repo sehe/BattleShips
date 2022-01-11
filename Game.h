@@ -7,7 +7,9 @@
 #include "Battle_Ships.h"
 #include <map>
 #include <boost/asio/ip/tcp.hpp>
+#ifdef _WIN32
 #pragma comment(lib, "Ws2_32.lib")
+#endif
 
 class Game : public Battle_Ships {
 private:
