@@ -1,0 +1,7 @@
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+compile_commands.json
+Makefile
+/BattleShip
+Session.vim
