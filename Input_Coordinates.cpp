@@ -5,10 +5,10 @@
 #include "Input_Coordinates.h"
 
 Input_Coordinates::Input_Coordinates() {
-x = 0;
-y = 0;
-direction = 0;
-whichShip = 0;
+    x         = 0;
+    y         = 0;
+    direction = 0;
+    whichShip = 0;
 }
 
 void Input_Coordinates::isMoveValid(int& range_x, int& range_y) const {
@@ -39,42 +39,33 @@ void Input_Coordinates::isMoveValid(int& range_x, int& range_y) const {
     }
 }
 
-void Input_Coordinates::get_range(int &range_x, int &range_y) const {
+void Input_Coordinates::get_range(int& range_x, int& range_y) const {
     cout << "Error at Input Coordinates: x = " << x << " y = " << y << " direction = " << direction << "\n";
-    if (x > range_x && direction == 0) {
+    if (x > range_x && direction == 0)
         cout << "Max X coordinate: " << range_x << "\n";
-    }
-    if (y > range_y && direction == 0) {
+    if (y > range_y && direction == 0)
         cout << "Max Y coordinate: " << range_y << "\n";
-    }
-    if (x > range_y && direction == 1) {
+    if (x > range_y && direction == 1)
         cout << "Max X coordinate: " << range_y << "\n";
-    }
-    if (y > range_x && direction == 1) {
+    if (y > range_x && direction == 1)
         cout << "Max Y coordinate: " << range_x << "\n";
-    }
 }
 
 void Input_Coordinates::get_run_upto(int& runUpto, std::string& value, std::string* myarr) const {
     if (myarr[whichShip] == "Carrier") {
         runUpto = 5;
-        value = "c";
+        value   = "c";
     } else if (myarr[whichShip] == "BattleShip") {
         runUpto = 4;
-        value = "b";
+        value   = "b";
     } else if (myarr[whichShip] == "Cruiser") {
         runUpto = 3;
-        value = "r";
+        value   = "r";
     } else if (myarr[whichShip] == "Submarine") {
         runUpto = 3;
-        value = "s";
+        value   = "s";
     } else if (myarr[whichShip] == "Destroyer") {
         runUpto = 2;
-        value = "d";
+        value   = "d";
     }
 }
-
-
-
-
-

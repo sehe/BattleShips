@@ -4,8 +4,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 find_package(Boost COMPONENTS system)
-INCLUDE_DIRECTORIES(SYSTEM ${Boost_INCLUDE_DIRS})
-LINK_LIBRARIES(${Boost_LIBRARIES})
+link_libraries(Boost::boost)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic ") # -Wconversion
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
@@ -27,11 +26,10 @@ SET(TIDYCHECKS "${TIDYCHECKS},google-*")
 SET(TIDYCHECKS "${TIDYCHECKS},performance-*,")
 
 ADD_CUSTOM_COMMAND(OUTPUT .stamp
-    COMMAND run-clang-tidy-11
+    COMMAND run-clang-tidy
     -fix
     -checks='-*,readability-*,modernize-*,-modernize-use-trailing-return-type'
     test.cpp
 )
 
 ADD_CUSTOM_TARGET(tidy DEPENDS .stamp)
-
